@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #parts of following code have been taken form Santi Peñate-Vera 
 #(https://stackoverflow.com/questions/207234/list-of-ip-addresses-hostnames-from-local-network-in-python)
 import os
@@ -9,7 +10,7 @@ import nmap
 
 def select_host(active_host):
     print(active_host)
-    print("Tell which host you wish to connect to")
+    print("Tell which host which you want to connect to")
     x = int(input())
     return active_host[x-1]
     
@@ -19,8 +20,11 @@ def check_port(all_host,default_port):
     nm = nmap.PortScanner()
     for host in all_host:
         nm.scan(str(host),str(default_port))
-        if(nm[str(host)]['tcp'][default_port]['state']=='open'):
-            active.append((host,socket.gethostbyaddr(str(host))[0]))
+        try:
+            if(nm[str(host)]['tcp'][default_port]['state']=='open'):
+                active.append((host,socket.gethostbyaddr(str(host))[0]))
+        except:
+            pass
     return active
 
 
@@ -102,7 +106,10 @@ def map_network(pool_size=255):
 
 if __name__ == '__main__':
 
-    print('Mapping...')
+    #print('Mapping...')
     #lst = map_network()
+    #print(lst)
     selected_host = select_host(check_port(map_network(),12345))
+    #print(lst1)
+    #selected_host = select_host(check_port(map_network(),12345))
     print("You have selected the following host: ",selected_host)
