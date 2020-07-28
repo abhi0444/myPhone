@@ -1,2 +1,2 @@
 # myPhone
-An alternative to Your Phone. (myPhone is still in the very initial development stage)
+An alternative to Your Phone. (myPhone is still in very initial development stage)
