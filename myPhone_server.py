@@ -1,6 +1,6 @@
 #Parts of the following code have been taken from user850498 
 #https://stackoverflow.com/questions/9623398/text-files-in-a-dir-and-store-the-file-names-in-a-list-python
-from bottle import route,run
+from bottle import route,run, template, static_file
 import json
 import socket
 import getpass
@@ -8,7 +8,26 @@ import getpass
 #array to store photos in
 editFiles_photos = []
 
+"""
+def list_photos():
+    files = []
+    for f in os.listdir(photos_dir):
+        if f[0] == '.':
+            continue
+        fullpath = os.path.join(photos_dir, f)
+        if os.path.isfile(fullpath):
+            files.append(fullpath)
+    return files
 
+@route("/photos")
+def photos():
+    return template(photos_tpl, files=list_photos())
+
+
+@route("/home/taru/Pictures/<filename>")
+def wallpapers(filename):
+    return static_file(filename, root = '/home/taru/Pictures')
+"""    
 
 def get_my_ip():
     """
