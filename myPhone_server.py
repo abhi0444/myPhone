@@ -4,7 +4,12 @@ from bottle import route,run
 import json
 import socket
 import getpass
+
+#array to store photos in
 editFiles_photos = []
+
+
+
 def get_my_ip():
     """
     Find my IP address
@@ -16,21 +21,26 @@ def get_my_ip():
     ip = s.getsockname()[0]
     s.close()
     return ip
+
+
+
 def get_photos_files():
     import os
     path = "/home/"+str(getpass.getuser())+"/Pictures"
-    dirListing = os.listdir(path)
-    for item in dirListing:
-        if ".png" in item:
-            editFiles_photos.append(item)
-        elif ".jpg" in item:
-            editFiles_photos.append(item)
-        elif ".jpeg" in item:
-            editFiles_photos.append(item)
+    for item in os.listdir(path):
+        full_path = os.path.join(path,item)
+        if os.path.isfile(full_path):
+            editFiles_photos.append(full_path)
     return editFiles_photos
+
+
+
 #Reply Functions
 @route('/photos')
 def photos_request_all():
     return {"photo_name" : get_photos_files()}
+
+
+
 #Run the server
 run(reloader=True,host=get_my_ip(), port=12345)
