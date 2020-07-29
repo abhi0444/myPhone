@@ -7,6 +7,23 @@ import multiprocessing
 import subprocess
 import os
 import nmap
+import requests
+from requests.exceptions import HTTPError
+
+def get_photos_from_client(selected_host):
+    url = "http://"+selected_host+":12345/photos"
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        # access JSOn content
+        jsonResponse = response.json()
+        #print("Entire JSON response")
+        print(jsonResponse)
+
+    except HTTPError as http_err:
+        print('HTTP error occurred:',http_err)
+    except Exception as err:
+        print('Other error occurred:', err)
 
 def select_host(active_host):
     print(active_host)
@@ -113,3 +130,7 @@ if __name__ == '__main__':
     #print(lst1)
     #selected_host = select_host(check_port(map_network(),12345))
     print("You have selected the following host: ",selected_host)
+    print("Select what you want to fetch\n1. Photos")
+    selected_method = int(input())
+    if selected_method == 1:
+        get_photos_from_client(selected_host[0])
