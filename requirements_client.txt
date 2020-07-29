@@ -1,0 +1,2 @@
+gyp==0.1
+python-nmap==0.6.1
