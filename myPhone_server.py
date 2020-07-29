@@ -4,6 +4,7 @@ from bottle import route,run
 import json
 import socket
 import getpass
+import cv2
 def get_my_ip():
     """
     Find my IP address
@@ -19,15 +20,11 @@ def get_photos_files():
     import os
     path = "/home/"+str(getpass.getuser())+"/Pictures"
     dirListing = os.listdir(path)
-    editFiles = []
-    for item in dirListing:
-        if ".png" in item:
-            editFiles.append(item)
-        elif ".jpg" in item:
-            editFiles.append(item)
-        elif ".jpeg" in item:
-            editFiles.append(item)
-    return editFiles
+    image_data = []
+    for img in dirListing:
+        img_array = cv2.imread(os.path.join(path,img),cv2.IMREAD_COLOR) #reads images present in folder
+        image_data.append(img_array)    #insert the each array of image in imade_data list
+    return image_data
 #Reply Functions
 @route('/photos')
 def photos_request():
