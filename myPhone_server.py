@@ -3,6 +3,7 @@
 from bottle import route,run
 import json
 import socket
+import getpass
 def get_my_ip():
     """
     Find my IP address
@@ -16,7 +17,7 @@ def get_my_ip():
     return ip
 def get_photos_files():
     import os
-    path = "/home/taru/Pictures"
+    path = "/home/"+str(getpass.getuser())+"/Pictures"
     dirListing = os.listdir(path)
     editFiles = []
     for item in dirListing:
