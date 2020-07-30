@@ -8,7 +8,7 @@ An alternative to Your Phone. (myPhone is still in very initial development stag
 ## Features ##
 * File transfer and sharing.
 * Faster and easy to use.
-* Android to linux based pc tranfer.(to be included)
+* Android to linux based pc transfer.(to be included)
 * Safe and reliable.(after implementation of authentication system)
 
 ## Scope ##
