@@ -30,9 +30,9 @@ git clone https://github.com/taru-garg/myPhone.git
  
    *   #### **Server side**
          ```sh
-           pip install -r /server/requirements_server.txt
+         pip install -r /server/requirements_server.txt
          ```
     *  #### **Client side**
           ```sh
-            pip install -r /client/requirements_client.txt
+          pip install -r /client/requirements_client.txt
           ```
