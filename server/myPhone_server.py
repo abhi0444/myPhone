@@ -4,30 +4,44 @@ from bottle import route,run, template, static_file
 import json
 import socket
 import getpass
+import os
 
-#array to store photos in
-editFiles_photos = []
+main_dir = "/home/"+str(getpass.getuser())+"/"
+photos_dir = main_dir+"Pictures"
 
+photos_tpl = """
+<ul>
+  % for file in files:
+    <li><a href="{{file}}">{{file}}</a></li>
+  % end
+</ul>
 """
+
+
+
 def list_photos():
-    files = []
-    for f in os.listdir(photos_dir):
-        if f[0] == '.':
-            continue
-        fullpath = os.path.join(photos_dir, f)
-        if os.path.isfile(fullpath):
-            files.append(fullpath)
-    return files
+    photos_list = []
+    for item in os.listdir(photos_dir):
+        full_path = os.path.join(photos_dir,item)
+        if os.path.isfile(full_path):
+            photos_list.append(full_path)
+    return photos_list
+
+
 
 @route("/photos")
 def photos():
     return template(photos_tpl, files=list_photos())
 
 
+
+
 @route("/home/taru/Pictures/<filename>")
 def wallpapers(filename):
     return static_file(filename, root = '/home/taru/Pictures')
-"""    
+
+
+
 
 def get_my_ip():
     """
@@ -41,23 +55,6 @@ def get_my_ip():
     s.close()
     return ip
 
-
-
-def get_photos_files():
-    import os
-    path = "/home/"+str(getpass.getuser())+"/Pictures"
-    for item in os.listdir(path):
-        full_path = os.path.join(path,item)
-        if os.path.isfile(full_path):
-            editFiles_photos.append(full_path)
-    return editFiles_photos
-
-
-
-#Reply Functions
-@route('/photos')
-def photos_request_all():
-    return {"photo_name" : get_photos_files()}
 
 
 
