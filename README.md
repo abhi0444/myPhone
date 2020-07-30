@@ -16,6 +16,7 @@ An alternative to Your Phone. (myPhone is still in very initial development stag
   * Achieving higher transfer speeds.
   * May include a windows app.
   * Password and Security.
+
 ## Built with 
   * Python(for networking). 
   * HTML,CSS and Javascript(GUI development).
@@ -23,9 +24,9 @@ An alternative to Your Phone. (myPhone is still in very initial development stag
   
 ## Installation 
  * Clone the repo.
- ```sh
-git clone https://github.com/taru-garg/myPhone.git
-```
+     ```sh
+    git clone https://github.com/taru-garg/myPhone.git
+    ```
  * Open the repo.
  
    *   #### **Server side**
