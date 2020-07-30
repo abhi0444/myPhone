@@ -36,9 +36,9 @@ def photos():
 
 
 
-@route("/home/taru/Pictures/<filename>")
+@route(photos_dir+"/<filename>")
 def wallpapers(filename):
-    return static_file(filename, root = '/home/taru/Pictures')
+    return static_file(filename, root = photos_dir)
 
 
 
