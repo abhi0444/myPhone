@@ -1,4 +1,4 @@
-# myPhone # (Currently client needs some changes to have it running)
+# myPhone (Currently client needs some changes to have it running) #
 
 An alternative to Your Phone. (myPhone is still in very initial development stage)
 
