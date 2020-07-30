@@ -30,9 +30,25 @@ git clone https://github.com/taru-garg/myPhone.git
  
    *   #### **Server side**
          ```sh
-         pip install -r /server/requirements_server.txt
+         cd server
+         pip install -r requirements_server.txt
+         cd ..
          ```
     *  #### **Client side**
           ```sh
+          cd client
           pip install -r /client/requirements_client.txt
+          cd ..
           ```
+## Running the app
+ 
+ * **Server**
+   ```sh
+   cd server
+   python myPhone_server.py
+   ```
+  * **Client**
+    ```sh
+    cd client
+    python myPhone_client.py
+    ```
