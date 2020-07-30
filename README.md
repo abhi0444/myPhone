@@ -28,11 +28,11 @@ git clone https://github.com/taru-garg/myPhone.git
 ```
  * Open the repo.
  
- ### Server side
-   ```sh
-     pip install -r /server/requirements_server.txt
-   ```
- ### Client side
-   ```sh
-     pip install -r /client/requirements_client.txt
-   ```
+   *   #### **Server side**
+         ```sh
+           pip install -r /server/requirements_server.txt
+         ```
+    *  #### **Client side**
+          ```sh
+            pip install -r /client/requirements_client.txt
+          ```
