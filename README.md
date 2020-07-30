@@ -3,7 +3,7 @@
 An alternative to Your Phone. (myPhone is still in very initial development stage)
 
 ## Purpose ##
-<p>This app is focused on P2P sharing between two devices(mainly pc and a phone). It aims at provide an easy and faster data transfer. </p>
+<p>This app is focused on P2P sharing between two devices(mainly pc and a phone). It aims at providing an easy and faster data transfer. </p>
 
 ## Features ##
 * File transfer and sharing.
