@@ -39,7 +39,7 @@ An alternative to Your Phone. (myPhone is still in very initial development stag
     *  #### **Client side** ####
           ```sh
           cd client
-          pip install -r /client/requirements_client.txt
+          pip install -r requirements_client.txt
           cd ..
           ```
 ## Running the app ##
