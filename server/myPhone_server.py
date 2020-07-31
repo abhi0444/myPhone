@@ -10,14 +10,10 @@ main_dir = "/home/"+str(getpass.getuser())+"/"
 photos_dir = main_dir+"Pictures"
 
 photos_tpl = """
-<ul>
-  % for file in files:
-    <li><a href="{{file}}">{{file}}</a></li>
-  % end
-</ul>
+% for file in files:
+   	<img src="{{file}}" alt="Snow" width=10% height=10% >
+% end
 """
-
-
 
 def list_photos():
     photos_list = []
@@ -27,21 +23,13 @@ def list_photos():
             photos_list.append(full_path)
     return photos_list
 
-
-
 @route("/photos")
 def photos():
     return template(photos_tpl, files=list_photos())
 
-
-
-
 @route(photos_dir+"/<filename>")
 def wallpapers(filename):
     return static_file(filename, root = photos_dir)
-
-
-
 
 def get_my_ip():
     """
@@ -54,9 +42,6 @@ def get_my_ip():
     ip = s.getsockname()[0]
     s.close()
     return ip
-
-
-
 
 #Run the server
 run(reloader=True,host=get_my_ip(), port=12345)
